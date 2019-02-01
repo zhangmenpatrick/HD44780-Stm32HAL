@@ -90,7 +90,19 @@ void Lcd_string(Lcd_HandleTypeDef * lcd, char * string)
  */
 void Lcd_cursor(Lcd_HandleTypeDef * lcd, uint8_t row, uint8_t col)
 {
-	lcd_write_command(lcd, SET_DDRAM_ADDR | ((row * 0x40) + col));
+	  char addr = 0x00;
+	  switch(row)
+	  {
+	     case 0: addr = 0x00; break; //Starting address of 1st line
+	     case 1: addr = 0x40; break; //Starting address of 2nd line
+	     case 2: addr = 0x14; break; //Starting address of 3rd line
+	     case 3: addr = 0x54; break; //Starting address of 4th line
+	     default: ;
+	  }
+
+	  addr += col;
+
+	lcd_write_command(lcd, SET_DDRAM_ADDR | addr);
 }
 
 
