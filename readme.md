@@ -1,6 +1,6 @@
 # HD44780 Lcd - stm32 HAL
 
-HD44780 20x4 Lcd library for stm32 using stm32-hal library's.
+HD44780 / SunStar 2004A 20x4 Lcd library for stm32 using stm32-hal library's.
 
 Library is developed and tested with Stm32H7 and the given example.
 
